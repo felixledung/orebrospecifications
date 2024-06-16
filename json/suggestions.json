@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Home",
+        "link": "index.html"
+    },
+    {
+        "name": "About",
+        "link": "about.html"
+    },
+    {
+        "name": "Services",
+        "link": "services.html"
+    },
+    {
+        "name": "Blog",
+        "link": "blog.html"
+    },
+    {
+        "name": "Contact",
+        "link": "contact.html"
+    },
+    {
+        "name": "Service 1",
+        "link": "service1.html"
+    },
+    {
+        "name": "Service 2",
+        "link": "service2.html"
+    },
+    {
+        "name": "Service 3",
+        "link": "service3.html"
+    },
+    {
+        "name": "Contact Us",
+        "link": "contact-us.html"
+    },
+    {
+        "name": "About Us",
+        "link": "about-us.html"
+    }
+]

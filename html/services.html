@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Örebro Specifications</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Örebro Specifications</a>
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+        </div>
+        <div class="searchBox">
+            <input type="text" id="searchInput" placeholder="Search here...">
+            <ul class="list" id="autocompleteList"></ul>
+        </div>
+    </header>
+
+    <section class="services">
+        <h1>Our Services</h1>
+        <p>We offer tons of services, more specific for computer services, web server hosting etc.</p>
+        <div class="cards-container">
+            <div class="card">
+                <ion-icon name="analytics-outline" class="card-icon"></ion-icon>
+                <h3>Website Analytics</h3>
+                <p>We provide detailed website analytics to help you understand your audience better.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <ion-icon name="settings-outline" class="card-icon"></ion-icon>
+                <h3>Admin Panel Setup</h3>
+                <p>We set up admin panels for your website and company for easy management.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <ion-icon name="server-outline" class="card-icon"></ion-icon>
+                <h3>Web Hosting</h3>
+                <p>We offer reliable web hosting services to ensure your website is always online.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <ion-icon name="help-circle-outline" class="card-icon"></ion-icon>
+                <h3>Web Support</h3>
+                <p>Do you need help with your website? We can help you. We offer an amazing web support service.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © <span id="year"></span>. All rights reserved.</p>
+        <p class="version"></p>
+    </footer>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../javascript/script.js" defer></script>
+</body>
+
+</html>

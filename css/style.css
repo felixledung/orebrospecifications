@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #dee1e2;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 58px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.logo {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1em;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+header ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+
+header ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+header .search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.searchBox {
+    position: absolute;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    padding: 0 30px;
+    transition: 0.5s ease-in-out;
+}
+
+.searchBox.active {
+    right: 0;
+}
+
+.searchBox input {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 50px;
+    color: #333;
+    font-size: 1.25em;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.searchBtn {
+    position: relative;
+    left: 30px;
+    top: 2.5px;
+    transition: 0.5s ease-in-out;
+}
+
+.searchBtn.active {
+    left: 0;
+}
+
+.closeBtn {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    scale: 0;
+}
+
+.closeBtn.active {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+    scale: 1;
+}
+
+.menuToggle {
+    position: relative;
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .searchBtn {
+        left: 0;
+    }
+
+    .menuToggle {
+        position: absolute;
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        transform: translateX(30px);
+        z-index: 10;
+    }
+
+    header .navigation {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        left: 100%;
+    }
+
+    header.open .navigation {
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        height: calc(100vh - 80px);
+        padding: 40px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header.open .navigation li a {
+        font-size: 1.25em;
+    }
+
+    header.open .navigation li a::before {
+        display: none;
+    }
+
+    .hide {
+        display: none;
+    }
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Ensure footer starts from the left edge */
+    right: 0;
+    /* Ensure footer stretches to the right edge */
+    border-top: 5px solid;
+    border-image: linear-gradient(45deg, #34bcec, #e4c512) 1;
+    margin-left: 0;
+    /* Remove any margin on the left */
+}
+
+
+.version {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+
+.services {
+    text-align: center;
+}
+
+/* Image Slider */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    background: #dee1e2;
+}
+
+.slider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(45deg, #34bcec, #e4c512);
+    pointer-events: none;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Home */
+
+.home {
+    text-align: center;
+    color: #333;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(45deg, #34bcec, #e4c512) 1;
+    overflow: hidden;
+}
+
+.card-icon {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #34bcec;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.card a {
+    display: inline-block;
+    background: #34bcec;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.card a:hover {
+    background: #2d8edc;
+}
+
+.list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.list-items {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.list-items:hover {
+    background: #f5f5f5;
+}
+
+.hide {
+    display: none;
+}
+
+.open {
+    margin-right: 300px;
+}
+
+/* About */
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.about img {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Services */
+
+.services {
+    margin-top: 120px;
+}
+
+/* Contact Section */
+
+.contact {
+    text-align: center;
+    margin-top: 120px;
+    color: #333;
+}
+
+.contact h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.contact iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+
+.contact b {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Style input boxes */
+.inputBox {
+    margin-bottom: 20px;
+}
+
+.inputBox input[type="text"],
+.inputBox input[type="email"],
+.inputBox textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+}
+
+.inputBox textarea {
+    height: 120px;
+    /* Set a specific height for the textarea */
+}
+
+/* Style the submit button */
+.inputBox input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    /* Blue color for the button */
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+.inputBox input[type="submit"]:hover {
+    background-color: #0056b3;
+    /* Darker shade of blue */
+}
+
+/* Price */
+
+.service-card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(45deg, #34bcec, #e4c512) 1;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    /* Move card up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Add a deeper shadow on hover */
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+}
+
+.service-card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.service-card a {
+    display: inline-block;
+    background: #34bcec;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.service-card a:hover {
+    background: #2d8edc;
+    transform: scale(1.1);
+    /* Scale up link on hover */
+}
+
+/* Price */
+
+.prices {
+    padding: 20px;
+    margin-top: 110px;
+    background: #dee1e2;
+    text-align: center;
+    color: #333;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(45deg, #34bcec, #e4c512) 1;
+    overflow: hidden;
+}
+
+/* Package Card */
+.package-card {
+    background: #f5f5f5;
+    /* Light grey background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Deeper shadow for a more prominent look */
+    padding: 30px;
+    /* More padding for a spacious layout */
+    width: 400px;
+    /* Adjusted width */
+    text-align: left;
+    /* Left-aligned text */
+    position: relative;
+    margin-bottom: 30px;
+    /* More margin at the bottom */
+    border-left: 5px solid #34bcec;
+    /* Left border instead of bottom border */
+    overflow: hidden;
+}
+
+/* Different font styles and colors */
+.package-card {
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 400px;
+    text-align: left;
+    position: relative;
+    margin-bottom: 30px;
+    border-left: 5px solid #34bcec;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    /* Move card up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Add a deeper shadow on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+}
+
+.package-card h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2d8edc;
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+}
+
+.package-card p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.package-card a {
+    display: inline-block;
+    background: #e4c512;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.package-card a:hover {
+    background: #d4b210;
+    transform: scale(1.1);
+    /* Scale up link on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+}
+
+/* Tips Box */
+.tips-box {
+    background: #f9f9f9;
+    /* Light grey background */
+    border-left: 5px solid #34bcec;
+    /* Blue left border */
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tips-box:hover {
+    transform: translateY(-5px);
+    /* Move card up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Add a deeper shadow on hover */
+}
+
+.tips-box h1 {
+    font-size: 1.8em;
+    /* Larger heading */
+    color: #34bcec;
+    /* Blue color */
+    margin-bottom: 10px;
+}
+
+.tips-box p {
+    font-size: 1.1em;
+    /* Slightly larger text */
+    color: #333;
+    /* Darker text color */
+    line-height: 1.5;
+    /* Improved readability */
+}
+
+/* Toast Notification */
+
+.toast {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    max-width: 500px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #40f452;
+    overflow: hidden;
+    z-index: 2000;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.toast.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast .toast-content i {
+    font-size: 5em;
+    color: #40f452;
+    margin-right: 20px;
+}
+
+.toast .toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.toast .message .text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.toast .message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+    overflow: hidden;
+}
+
+.toast .progress:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #40f452;
+    transition: width 5s linear;
+}
+
+.toast.active .progress:before {
+    width: 0;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .tips-box {
+        padding: 15px;
+        border-left: 4px solid #34bcec;
+    }
+
+    .tips-box h1 {
+        font-size: 1.5em;
+    }
+
+    .tips-box p {
+        font-size: 1em;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    .service-card,
+    .package-card {
+        width: 100%;
+        /* Anpassa bredden för mindre skärmar */
+    }
+}
+
+/* Responsiv design */
+@media (max-width: 600px) {
+    .input-field {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .contact {
+        padding: 20px;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    .service-card,
+    .package-card {
+        width: 100%;
+        /* Anpassa bredden för mindre skärmar */
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .navigation {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    header .navigation li {
+        width: 100%;
+    }
+
+    header .navigation li a {
+        width: 100%;
+        text-align: left;
+    }
+
+    header .menuToggle {
+        display: block;
+    }
+
+    header.active .navigation {
+        display: flex;
+    }
+}

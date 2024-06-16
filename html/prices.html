@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tjänster och Priser - Örebro Specifications</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Örebro Specifications</a>
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+        </div>
+        <div class="searchBox">
+            <input type="text" id="searchInput" placeholder="Search here...">
+            <ul class="list" id="autocompleteList"></ul>
+        </div>
+    </header>
+
+    <section class="prices">
+        <h1>Tjänster och Priser</h1>
+        <div class="cards-container">
+            <div class="service-card">
+                <h2>Website Analytics</h2>
+                <p><strong>Pris:</strong> 800 SEK per månad</p>
+                <p><strong>Beskrivning:</strong> Vi erbjuder detaljerad webbplatsanalys för att hjälpa dig att förstå
+                    din publik bättre. Du får insikter om besökarnas beteenden, trafikkällor, och mycket mer.</p>
+            </div>
+            <div class="service-card">
+                <h2>Admin Panel Setup</h2>
+                <p><strong>Pris:</strong> 1200 SEK engångskostnad</p>
+                <p><strong>Beskrivning:</strong> Vi sätter upp adminpaneler för din webbplats och ditt företag för enkel
+                    hantering. Det inkluderar användarhantering, innehållshantering och säkerhetsfunktioner.</p>
+            </div>
+            <div class="service-card">
+                <h2>Web Hosting</h2>
+                <p><strong>Pris:</strong> 500 SEK</p>
+                <p><strong>Beskrivning:</strong> Vi erbjuder pålitliga webbhotelltjänster för att säkerställa att din
+                    webbplats alltid är online. Våra tjänster inkluderar regelbundna säkerhetskopior, hög upptid och
+                    snabb support.</p>
+            </div>
+            <div class="service-card">
+                <h2>Web Support</h2>
+                <p><strong>Pris:</strong> 400 SEK</p>
+                <p><strong>Beskrivning:</strong> Behöver du hjälp med din webbplats? Vi kan hjälpa dig. Vi erbjuder en
+                    fantastisk webbsupporttjänst som täcker allt från tekniska problem till innehållshantering.</p>
+            </div>
+            <div class="package-card">
+                <h2>Örebro Specifications Plus</h2>
+                <p><strong>Årskostnad:</strong> 2900 SEK per månad (inkluderar Website Analytics, Web Hosting och Web
+                    Support)
+                </p>
+                <p><strong>Engångskostnad:</strong> 1200 SEK (för Admin Panel Setup)</p>
+            </div>
+        </div>
+
+        <div class="tips-box">
+            <h1>Tips</h1>
+            <p>We recommend our "Örebro Specifications Plus" package. Therefore think we it will get the most of what we
+                can offer. It will cost you 2900 SEK per year. We think it is a fair price. That is because we have a
+                lot of experience, and high performance of our services.</p>
+        </div>
+
+        <footer>
+            <p>Copyright © <span id="year"></span>. All rights reserved.</p>
+            <p class="version"></p>
+        </footer>
+
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="../javascript/script.js" defer></script>
+</body>
+
+</html>
